@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-(function(){console.log('Hi')
+(function(){
     var app = angular.module('starter', ['ionic'])
 
     app.config(function($stateProvider, $urlRouterProvider){
@@ -17,9 +17,18 @@
          /*/:Parameter Name*/
          url:'/edit/:noteId',
          templateUrl:'templates/edit.html',
-
+         controller:'edit-controller'
        }
       );
+
+      $stateProvider.state('add', {
+         /*/:Parameter Name*/
+         url:'/add',
+         templateUrl:'templates/edit.html',
+         controller:'add-controller'
+       }
+      );
+
 
       $urlRouterProvider.otherwise('/list');
     });
@@ -54,6 +63,9 @@
 
     app.controller('notes-controller', function($scope){
         $scope.notes = notes;
+        $scope.newNote = function(){
+          console.log('New Note');
+        }
     });
 
     //First We configure the App, And than have the logic to control it.
@@ -68,6 +80,18 @@
         }
     });
 
+    app.controller('add-controller', function($scope, $state){
+       $scope.note = {
+        id: new Date().getTime().toString(),
+        title:'',
+        description:''
+       }
+
+       $scope.save = function(){
+         notes.push($scope.note);
+         $state.go('list');
+       }
+    })
 
     app.run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {

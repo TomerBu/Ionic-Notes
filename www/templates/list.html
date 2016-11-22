@@ -1,5 +1,9 @@
 <ion-view view-title='Notes'>
 	  <ion-content ng-controller='notes-controller'>
+
+	    <div class="padding">
+	    	<a href="#/add" ng-click='newNote()' class="button button-block button-calm">New Note</a>
+	    </div>
         <ion-list>
           <div ng-repeat="note in notes">
           <!-- We want to add an edit state view -->
