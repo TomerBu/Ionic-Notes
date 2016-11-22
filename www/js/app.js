@@ -6,16 +6,6 @@
 (function(){console.log('Hi')
     var app = angular.module('starter', ['ionic'])
 
-
-    app.controller('notes-controller', function($scope){
-        $scope.notes = [
-          {title:'First Note', description:'The Data'},
-          {title:'2nd Note', description:'The Data'},
-          {title:'3rd Note', description:'The Data'},
-        ];
-    });
-
-
     app.config(function($stateProvider, $urlRouterProvider){
       $stateProvider.state('list', {
          url:'/list',
@@ -24,12 +14,28 @@
       );
 
       $stateProvider.state('edit', {
-         url:'/edit',
-         templateUrl:'templates/edit.html'
+         /*/:Parameter Name*/
+         url:'/edit/:noteId',
+         templateUrl:'templates/edit.html',
+
        }
       );
 
       $urlRouterProvider.otherwise('/list');
+    });
+
+    //First We configure the App, And than have the logic to control it.
+    app.controller('notes-controller', function($scope){
+        $scope.notes = [
+          {id:'1', title:'First Note', description:'The Data'},
+          {id:'2', title:'2nd Note', description:'The Data'},
+          {id:'3', title:'3rd Note', description:'The Data'},
+        ];
+    });
+
+    //First We configure the App, And than have the logic to control it.
+    app.controller('edit-controller', function($scope, $state){
+        $scope.noteId = $state.params.noteId;
     });
 
 

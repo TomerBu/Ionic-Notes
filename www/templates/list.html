@@ -3,7 +3,7 @@
         <ion-list>
           <ion-item ng-repeat="note in notes">
           <!-- We want to add an edit state view -->
-              <a href="#/edit" title="">
+              <a href="#/edit/{{note.id}}" title="">
                   <h2>{{note.title}}</h2>
                   <p>{{note.description}}</p>
               </a>
