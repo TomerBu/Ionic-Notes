@@ -2,11 +2,11 @@
 	<ion-content>
 			<div class='list card'>
 				<div class="item item-input">
-					<input type="text" name="" value="{{note.title}}" placeholder="Note Title">
+					<input type="text" name="" ng-model="note.title" placeholder="Note Title">
 				</div>
 
 				<div class="item item-input">
-					<textarea rows='40'>{{note.description}}</textarea>
+					<textarea rows='40' ng-model="note.description"></textarea>
 				</div>
 			</ion-list>
 	</ion-content>
