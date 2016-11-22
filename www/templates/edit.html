@@ -1,6 +1,13 @@
 <ion-view view-title="Edit" ng-controller="edit-controller">
 	<ion-content>
-		<h1>This is the Edit View</h1>
-		{{noteId}}
+			<div class='list card'>
+				<div class="item item-input">
+					<input type="text" name="" value="{{note.title}}" placeholder="Note Title">
+				</div>
+
+				<div class="item item-input">
+					<textarea rows='40'>{{note.description}}</textarea>
+				</div>
+			</ion-list>
 	</ion-content>
 </ion-view>

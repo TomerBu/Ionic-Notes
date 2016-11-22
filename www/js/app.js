@@ -25,17 +25,29 @@
     });
 
     //First We configure the App, And than have the logic to control it.
-    app.controller('notes-controller', function($scope){
-        $scope.notes = [
+    var notes = [
           {id:'1', title:'First Note', description:'The Data'},
           {id:'2', title:'2nd Note', description:'The Data'},
           {id:'3', title:'3rd Note', description:'The Data'},
         ];
+
+    //we need this function so we can delete notes and use non-sequential ids.
+    function findNoteById(noteId){
+      for (var i = 0; i < notes.length; i++) {
+        if(notes[i].id === noteId)
+          return notes[i];
+      }
+      return undefined;
+    }
+
+    app.controller('notes-controller', function($scope){
+        $scope.notes = notes;
     });
 
     //First We configure the App, And than have the logic to control it.
     app.controller('edit-controller', function($scope, $state){
         $scope.noteId = $state.params.noteId;
+        $scope.note = findNoteById($scope.noteId);
     });
 
 
