@@ -23,6 +23,12 @@
        }
       );
 
+      $stateProvider.state('edit', {
+         url:'/edit',
+         templateUrl:'templates/edit.html'
+       }
+      );
+
       $urlRouterProvider.otherwise('/list');
     });
 
