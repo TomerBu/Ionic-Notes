@@ -40,6 +40,18 @@
       return undefined;
     }
 
+
+    //we need this function so we can delete notes and use non-sequential ids.
+    function updateNote(note){
+      for (var i = 0; i < notes.length; i++) {
+        if(notes[i].id === note.id){
+           notes[i] = note;
+           return;
+        }
+      }
+    }
+
+
     app.controller('notes-controller', function($scope){
         $scope.notes = notes;
     });
@@ -47,7 +59,13 @@
     //First We configure the App, And than have the logic to control it.
     app.controller('edit-controller', function($scope, $state){
         $scope.noteId = $state.params.noteId;
-        $scope.note = findNoteById($scope.noteId);
+        $scope.note = angular.copy(findNoteById($scope.noteId));
+
+
+        $scope.save = function(){
+          updateNote($scope.note);
+          $state.go('list');
+        }
     });
 
 
