@@ -63,9 +63,6 @@
 
     app.controller('notes-controller', function($scope){
         $scope.notes = notes;
-        $scope.newNote = function(){
-          console.log('New Note');
-        }
     });
 
     //First We configure the App, And than have the logic to control it.
