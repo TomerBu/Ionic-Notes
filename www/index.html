@@ -38,16 +38,11 @@
       <ion-header-bar class="bar-stable">
         <h1 class="title">Ionic Blank Starter</h1>
       </ion-header-bar>
-      <ion-content ng-controller='notes-controller'>
-        <ion-list>
-          <ion-item ng-repeat="note in notes">
-              <a href="#/edit" title="">
-                  <h2>{{note.title}}</h2>
-                  <p>{{note.description}}</p>
-              </a>
-          </ion-item>
-        </ion-list>
-      </ion-content>
+      <!-- We need to tell the ionic framework which view to display depending on each state, which we'l do in the JS File
+      app.config, use stateProvider service where we define the states.
+       -->
+      <ion-nav-view>
+      </ion-nav-view>
     </ion-pane>
   </body>
 </html>

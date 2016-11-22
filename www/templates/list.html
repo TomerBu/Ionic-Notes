@@ -1,0 +1,13 @@
+<ion-view>
+	  <ion-content ng-controller='notes-controller'>
+        <ion-list>
+          <ion-item ng-repeat="note in notes">
+          <!-- We want to add an edit state view -->
+              <a href="#/edit" title="">
+                  <h2>{{note.title}}</h2>
+                  <p>{{note.description}}</p>
+              </a>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+</ion-view>
